@@ -21,7 +21,7 @@ services:
     - db
 
 db:
-    image: mongo
+    image: alpine
     container_name: yolo-db
     restart: unless-stopped
     environment: 
@@ -41,7 +41,7 @@ db:
 networks:
     mailer: 
         driver: bridge
-        
+
 
 
   
