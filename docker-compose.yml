@@ -1,42 +1,29 @@
-version: "3.1"
+version: "3.7"
 services:
-    app:
-        build: .
-         context: ./
-         Dockerfile: Dockerfile
-        image: redis:latest
-        container_name: yolo-app
-        restart: unless-stopped
-        volumes: 
-         - ./:/var/www/html
-        ports:
-         - 8080:80
-        networks:
-         - mailer 
-        depends_on:
-         - db
-
-    db:
-        image: alpine
-        container_name: yolo-db
-        restart: unless-stopped
-        environment: 
-            MYSQL_DATABASE: ${DB_DATABASE}
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-            MYSQL_PASSWORD: ${DB_PASSWORD}
-            MYSQL_USER: ${DB_USERNAME}
-            SERVICE_TAGS: dev
-            SERVICE_NAME: mysql 
-        volumes: 
-         - ./mysql:/var/lib
-        ports:
-         - 4306:4306
-         networks:
-         - mailer 
-
-networks:
-    mailer: 
-        driver: bridge
+  client:
+    image: akarad/yolo-client:1.0
+    build:
+      context: .
+      args:
+        - BUILD_DATE
+      dockerfile: client.Dockerfile
+    links:
+      - backend
+    ports:
+      - 3000:3000
+  backend:
+    image: akarad/yolo-backend:1.0
+    build:
+      context: .
+      dockerfile: backend.Dockerfile
+    ports:
+      - 5000:5000
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
 
 
 
