@@ -53,24 +53,24 @@
     rule: allow
     port: '22'
     proto: tcp
- 
+
 - name: Allow everything and enable UFW
   community.general.ufw:
     state: enabled
     policy: allow
- 
+
 - name: Allow all access to 2222
   community.general.ufw:
     rule: allow
     port: '2222'
     proto: tcp
- 
+  
 - name: Allow all access to TCP port 5000
   community.general.ufw:
     rule: allow
     port: '5000'
     proto: tcp
- 
+
 - name: Reboot the backend virtual machine
   shell: sleep 5 && systemctl reboot
   async: 300
