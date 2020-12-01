@@ -1,19 +1,13 @@
 # Configuration management using Ansible and Vagrant
 
-## Navigate to the Client Folder 
- `cd client`
+Provision vagrant with the latest Ubuntu Jeff Geerlings ubuntu 20.04 image
 
-## Run the folllowing command to install the dependencies 
- `npm install`
+#Installation
 
-## Run the folllowing to start the app
- `npm start`
+Clone this repo
 
-## Open a new terminal and run the same commands in the backend folder
- `cd ../backend`
+Change to that directory
 
- `npm install`
+Run vagrant
 
- `npm start`
-
- ### Go ahead a nd add a product (note that the price field only takes a numeric input)
+ vagrant up
