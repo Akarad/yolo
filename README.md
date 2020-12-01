@@ -12,8 +12,11 @@ Run vagrant
 
  vagrant up
 
+ To view, visit http://192.168.60.4:3000 and click add a product.
+
 # ansible playbook implementations
 
-Variables
+Variables,
 Roles and
 Blocks and tags
+
