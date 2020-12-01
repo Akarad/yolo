@@ -1,1 +1,0 @@
-base image choice - Alpine has been used since it is small in size and this would mean that it would take less time to run.

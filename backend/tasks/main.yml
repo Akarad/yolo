@@ -36,15 +36,15 @@
   command: > 
      chdir=/home/vagrant/backend
      pm2 list
-     
+    
 - name: Start the backend using PM2
   command: >
      chdir=/home/vagrant/backend
-     pm2 start --name yolo_app npm -- start 
-     
+     pm2 start --name yolo_app npm -- start
+
 - name: Save the list of process for automatic restart after a system reboot
   command: pm2 save
-     
+
 - name: Configure PM2 to start automatically on system bootup
   command: pm2 startup
 
@@ -64,7 +64,7 @@
     rule: allow
     port: '2222'
     proto: tcp
-  
+
 - name: Allow all access to TCP port 5000
   community.general.ufw:
     rule: allow
